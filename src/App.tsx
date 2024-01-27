@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import Autocomplete from "./components/Autocomnplete";
 
 function App() {
+  const [selectedHobby, setSelectedHobby] = useState<number | null>(null);
+
+  const hobbies = [
+    { id: 0, name: 'Education' },
+    { id: 1, name: 'Yeeeah, science!' },
+    { id: 2, name: 'Art' },
+    { id: 3, name: 'Sport' },
+    { id: 4, name: 'Games' },
+    { id: 5, name: 'Health' },
+  ];
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <Autocomplete items={hobbies} value={selectedHobby} setValue={setSelectedHobby}/>
+      </div>
   );
 }
 
